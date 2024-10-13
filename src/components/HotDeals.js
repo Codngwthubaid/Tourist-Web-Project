@@ -32,7 +32,7 @@ const HotDeals = () => {
           <MinorCardForAll img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" amount="1000"/>
         </div>
       </div>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center mb-20'>
                 <Link href="/pages/Destination">
                     <button type="button" className='text-blue-400 hover:bg-blue-400 hover:text-white font-semibold p-3 bg-slate-200 rounded-lg'>Contact Us</button>
                 </Link>

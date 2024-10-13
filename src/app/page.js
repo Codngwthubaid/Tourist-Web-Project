@@ -1,6 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import Destination from "@/components/Destination";
 import HotDeals from "@/components/HotDeals";
+import AboutShorter from "@/components/AboutShorter";
+import Coppon from "@/components/Coppon";
 
 export default function Home() {
   return (
@@ -13,8 +15,14 @@ export default function Home() {
           <section>
             <Destination />
           </section>
-          <section className="mt-20">
+          <section>
             <HotDeals />
+          </section>
+          <section>
+            <AboutShorter />
+          </section>
+          <section>
+            <Coppon/>
           </section>
         </article>
       </main>

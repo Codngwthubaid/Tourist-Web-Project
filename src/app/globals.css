@@ -7,3 +7,9 @@
   height: 80vh;
   width: 100vw;
 }
+
+.CopponImg{
+  background-image: url("../public/Img/main.jpg");
+  height: 80vh;
+  width: 100vw;
+}
