@@ -9,7 +9,7 @@ const Destination = () => {
     return (
         <div className='flex flex-col gap-y-5'>
             <div>
-               <MinorTitle boldData="Destination" unboldData="FOR YOU"/>
+               <MinorTitle unboldData="Destination" boldData="FOR YOU"/>
             </div>
             <div className='w-3/4 border-4 mx-auto flex justify-around items-center p-4 rounded-lg bg-slate-200'>
                 <Chooser Name="Famous Places" />
@@ -18,7 +18,7 @@ const Destination = () => {
                 <Chooser Name="Monuments" />
                 <Chooser Name="Mosque" />
             </div>
-            <div className='w-4/5 border-4 border-blue-400 mx-auto flex justify-around items-center py-5 rounded-lg'>
+            <div className='w-4/5 mx-auto flex justify-around items-center py-5 rounded-lg'>
                 <div className='flex flex-col gap-y-3 justify-center items-center'>
                     <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
                     <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
