@@ -1,99 +1,41 @@
 import React from 'react'
-import DehradunZoo from "../Img/DehradunZoo.jpg"
+import DehradunZoo from "@/public/Img/DehradunZoo.jpg"
+import Link from 'next/link'
+import Chooser from './Chooser'
+import MinorCardOfDestination from './MinorCardOfDestination'
+import MinorTitle from './MinorTitle'
 
 const Destination = () => {
     return (
         <div className='flex flex-col gap-y-5'>
             <div>
-                <div className='text-blue-800 text-3xl text-center'>Destination <span className='font-semibold'>For You</span></div>
-                <div className='h-1 bg-blue-400 w-1/6 mx-auto'></div>
+               <MinorTitle boldData="Destination" unboldData="FOR YOU"/>
             </div>
             <div className='w-3/4 border-4 mx-auto flex justify-around items-center p-4 rounded-lg bg-slate-200'>
-                <div className='p-2 border text-blue-400 rounded-lg hover:bg-blue-400 hover:text-white hover:cursor-pointer'>Famous Places</div>
-                <div className='p-2 border text-blue-400 rounded-lg hover:bg-blue-400 hover:text-white hover:cursor-pointer'>Rivers</div>
-                <div className='p-2 border text-blue-400 rounded-lg hover:bg-blue-400 hover:text-white hover:cursor-pointer'>Temples</div>
-                <div className='p-2 border text-blue-400 rounded-lg hover:bg-blue-400 hover:text-white hover:cursor-pointer'>Monuments</div>
-                <div className='p-2 border text-blue-400 rounded-lg hover:bg-blue-400 hover:text-white hover:cursor-pointer'>Mosque</div>
+                <Chooser Name="Famous Places" />
+                <Chooser Name="Rivers" />
+                <Chooser Name="Temples" />
+                <Chooser Name="Monuments" />
+                <Chooser Name="Mosque" />
             </div>
-            <div className='w-4/5 border-4 mx-auto flex justify-evenly items-center p-2 rounded-lg'>
-                <div>
-                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
-                        <div>
-                            <img
-                                className='w-24 rounded-tl-lg rounded-bl-lg'
-                                src={DehradunZoo}
-                                alt="Dehradun Zoo" />
-                        </div>
-                        <div>
-                            <div>Dehradun Zoo</div>
-                            <div className='text-sm text-blue-400'>Read more</div>
-                        </div>
-                    </div>
-                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
-                        <div>
-                            <img
-                                className='w-24 rounded-tl-lg rounded-bl-lg'
-                                src={DehradunZoo}
-                                alt="Dehradun Zoo" />
-                        </div>
-                        <div>
-                            <div>Dehradun Zoo</div>
-                            <div className='text-sm text-blue-400'>Read more</div>
-                        </div>
-                    </div>
+            <div className='w-4/5 border-4 border-blue-400 mx-auto flex justify-around items-center py-5 rounded-lg'>
+                <div className='flex flex-col gap-y-3 justify-center items-center'>
+                    <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
+                    <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
                 </div>
-                <div>
-                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
-                        <div>
-                            <img
-                                className='w-24 rounded-tl-lg rounded-bl-lg'
-                                src={DehradunZoo}
-                                alt="Dehradun Zoo" />
-                        </div>
-                        <div>
-                            <div>Dehradun Zoo</div>
-                            <div className='text-sm text-blue-400'>Read more</div>
-                        </div>
-                    </div>
-                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
-                        <div>
-                            <img
-                                className='w-24 rounded-tl-lg rounded-bl-lg'
-                                src={DehradunZoo}
-                                alt="Dehradun Zoo" />
-                        </div>
-                        <div>
-                            <div>Dehradun Zoo</div>
-                            <div className='text-sm text-blue-400'>Read more</div>
-                        </div>
-                    </div>
+                <div className='flex flex-col gap-y-3 justify-center items-center'>
+                    <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
+                    <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
                 </div>
-                <div>
-
-                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
-                        <div>
-                            <img
-                                className='w-24 rounded-tl-lg rounded-bl-lg'
-                                src={DehradunZoo}
-                                alt="Dehradun Zoo" />
-                        </div>
-                        <div>
-                            <div>Dehradun Zoo</div>
-                            <div className='text-sm text-blue-400'>Read more</div>
-                        </div>
-                    </div> <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
-                        <div>
-                            <img
-                                className='w-24 rounded-tl-lg rounded-bl-lg'
-                                src={DehradunZoo}
-                                alt="Dehradun Zoo" />
-                        </div>
-                        <div>
-                            <div>Dehradun Zoo</div>
-                            <div className='text-sm text-blue-400'>Read more</div>
-                        </div>
-                    </div>
+                <div className='flex flex-col gap-y-3 justify-center items-center'>
+                    <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
+                    <MinorCardOfDestination img={DehradunZoo} alt="Dehradun Zoo" title="Dehradun Zoo" />
                 </div>
+            </div>
+            <div className='flex justify-center items-center'>
+                <Link href="/pages/Destination">
+                    <button type="button" className='text-blue-400 hover:bg-blue-400 hover:text-white font-semibold p-3 bg-slate-200 rounded-lg'>Explore More</button>
+                </Link>
             </div>
         </div>
     )

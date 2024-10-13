@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import search from "../Img/search.png"
-import '../App.css'
+"use client"
+import React, { useState } from "react"
+import search from "@/public/Img/search.png"
+import Image from "next/image"
 
 const HeroSection = () => {
 
@@ -35,7 +36,11 @@ const HeroSection = () => {
                         <button className="hidden xl:flex justify-center items-center gap-x-1 px-4 py-2 ml-2 text-white bg-blue-400 hover:bg-blue-600 rounded">
                             <div>Book Now</div>
                             <div>
-                                <img src={search} width={30} alt="Search Img" />
+                                <Image
+                                    src={search}
+                                    width={30}
+                                    alt="Search Img"
+                                />
                             </div>
                         </button>
                     </div>
