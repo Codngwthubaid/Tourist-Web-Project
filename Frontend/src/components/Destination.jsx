@@ -19,25 +19,80 @@ const Destination = () => {
                 <div>
                     <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
                         <div>
-                            <img 
-                            className='w-24 rounded-tl-lg rounded-bl-lg'
-                            src={DehradunZoo}
-                            alt="Dehradun Zoo" />
+                            <img
+                                className='w-24 rounded-tl-lg rounded-bl-lg'
+                                src={DehradunZoo}
+                                alt="Dehradun Zoo" />
                         </div>
                         <div>
                             <div>Dehradun Zoo</div>
                             <div className='text-sm text-blue-400'>Read more</div>
                         </div>
                     </div>
-                    <div className='border-2'>Ubaid</div>
+                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
+                        <div>
+                            <img
+                                className='w-24 rounded-tl-lg rounded-bl-lg'
+                                src={DehradunZoo}
+                                alt="Dehradun Zoo" />
+                        </div>
+                        <div>
+                            <div>Dehradun Zoo</div>
+                            <div className='text-sm text-blue-400'>Read more</div>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <div className='border-2'>Ubaid</div>
-                    <div className='border-2'>Ubaid</div>
+                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
+                        <div>
+                            <img
+                                className='w-24 rounded-tl-lg rounded-bl-lg'
+                                src={DehradunZoo}
+                                alt="Dehradun Zoo" />
+                        </div>
+                        <div>
+                            <div>Dehradun Zoo</div>
+                            <div className='text-sm text-blue-400'>Read more</div>
+                        </div>
+                    </div>
+                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
+                        <div>
+                            <img
+                                className='w-24 rounded-tl-lg rounded-bl-lg'
+                                src={DehradunZoo}
+                                alt="Dehradun Zoo" />
+                        </div>
+                        <div>
+                            <div>Dehradun Zoo</div>
+                            <div className='text-sm text-blue-400'>Read more</div>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <div className='border-2'>Ubaid</div>
-                    <div className='border-2'>Ubaid</div>
+
+                    <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
+                        <div>
+                            <img
+                                className='w-24 rounded-tl-lg rounded-bl-lg'
+                                src={DehradunZoo}
+                                alt="Dehradun Zoo" />
+                        </div>
+                        <div>
+                            <div>Dehradun Zoo</div>
+                            <div className='text-sm text-blue-400'>Read more</div>
+                        </div>
+                    </div> <div className='border-2 flex justify-center items-center gap-x-3 rounded-lg'>
+                        <div>
+                            <img
+                                className='w-24 rounded-tl-lg rounded-bl-lg'
+                                src={DehradunZoo}
+                                alt="Dehradun Zoo" />
+                        </div>
+                        <div>
+                            <div>Dehradun Zoo</div>
+                            <div className='text-sm text-blue-400'>Read more</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
