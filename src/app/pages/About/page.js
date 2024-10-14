@@ -3,7 +3,7 @@ import React from 'react'
 const page = () => {
   return (
     <div>
-      Im Destination
+      Im about
     </div>
   )
 }

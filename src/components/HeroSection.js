@@ -1,79 +1,12 @@
-"use client"
-import React, { useState } from "react"
-import search from "@/public/Img/search.png"
-import Image from "next/image"
+import React from "react"
+import Navbar from "./Navbar"
 
 const HeroSection = () => {
-
-    const [isClick, setIsClick] = useState(false)
-
-    const toggleNavbar = () => {
-        setIsClick(!isClick)
-    }
-
 
     return (
         <div>
             <div className="mainImg relative h-[644px bg-center bg-no-repeat bg-[length:max(1200px,100vw)]">
-                <nav className="relative z-10 flex items-center justify-evenly h-[100px] mx-auto">
-                    <div className='text-white text-3xl font-semibold hover:cursor-pointer text-center'>Dehradun<div className='text-blue-800'>Tourism</div></div>
-                    <div>
-                        <ul className='hidden xl:flex justify-between items-center gap-x-3'>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Home</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>About</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Blog</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Contact</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Destination</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Hospitals</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Hotels</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Resturants</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>Maps</li></a>
-                            <a href=""><li className='hover:text-white hover:decoration-blue-600 hover:underline'>AI-Bot</li></a>
-                        </ul>
-                    </div>
-                    <div>
-                        <button className="hidden xl:flex justify-center items-center gap-x-1 px-4 py-2 ml-2 text-white bg-blue-400 hover:bg-blue-600 rounded">
-                            <div>Book Now</div>
-                            <div>
-                                <Image
-                                    src={search}
-                                    width={30}
-                                    alt="Search Img"
-                                />
-                            </div>
-                        </button>
-                    </div>
-                    <div className='xl:hidden'>
-                        <button type="submit" onClick={() => toggleNavbar()}>
-                            {isClick ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256">
-                                    <g fill="#FFFFFF" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" ><g transform="scale(5.12,5.12)"><path d="M9.15625,6.3125l-2.84375,2.84375l15.84375,15.84375l-15.9375,15.96875l2.8125,2.8125l15.96875,-15.9375l15.9375,15.9375l2.84375,-2.84375l-15.9375,-15.9375l15.84375,-15.84375l-2.84375,-2.84375l-15.84375,15.84375z"></path></g></g>
-                                </svg>
-                            ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0,0,256,256">
-                                    <g fill="#FFFFFF" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" ><g transform="scale(10.66667,10.66667)"><path d="M2,5v2h20v-2zM2,11v2h20v-2zM2,17v2h20v-2z"></path></g></g>
-                                </svg>
-                            )}
-                        </button>
-                    </div>
-                </nav>
-                {isClick && (
-                    <div className='xl:hidden'>
-                        <ul className='flex justify-between flex-col w-full mainImg text-white text-xl object-fill h-[85vh] items-center gap-x-3'>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Home</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>About</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Blog</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Contact</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Destination</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Hospitals</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Hotels</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Resturants</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>Maps</li></a>
-                            <a href=""><li onClick={() => toggleNavbar()} className='hover:text-white hover:decoration-blue-600 hover:underline'>AI-Bot</li></a>
-                        </ul>
-                    </div>
-                )}
-
+                <Navbar />
                 <div className='flex flex-col text-center justify-center items-center text-white h-[80vh]  sm:my-16 xl:my-32 gap-y-3 font-medium'>
                     <div className='text-2xl sm:text-4xl xl:text-6xl'>
                         Adventure awaits, Let's make
