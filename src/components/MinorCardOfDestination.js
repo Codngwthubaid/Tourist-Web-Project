@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const MinorCardOfDestination = (props) => {
     return (
-        <div className='w-[22vw] border-2 flex justify-start items-center gap-x-3 rounded-lg'>
+        <div className='w-[80vw] md:w-[50vw] lg:w-[25vw] border-2 flex justify-start items-center gap-x-3 rounded-lg'>
             <div>
                 <Image
                     className='w-24 rounded-tl-lg rounded-bl-lg'

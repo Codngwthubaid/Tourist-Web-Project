@@ -1,29 +1,33 @@
 import React from 'react'
 import MinorTitle from './MinorTitle'
 import BlogShorter from './BlogShorter'
-import demo from"@/public/Img/demo.jpg"
+import demo from "@/public/Img/demo.jpg"
 import Image from 'next/image'
 
 const BlogPost = () => {
     return (
         <div>
             <div><MinorTitle unboldData="Latest" boldData="BLOG POST" /></div>
-            <div className='w-11/12 mx-auto my-10 flex'>
-                <div className='flex flex-col w-1/2'>
-                    <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
-                    <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
-                    <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
-                    <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
-                    <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
-                    <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
-                    <div className='text-blue-400 hover:cursor-pointer p-2'>Explore All Blogs</div>
-                </div>
-                <div className='w-1/2 p-2'>
+            <div className='w-11/12 mx-auto my-10 flex lg:flex-row flex-col-reverse gap-5'>
+                <div className='flex flex-col sm:flex-row justify-between lg:w-1/2'>
                     <div>
-                        <Image 
-                        src={demo}
-                        alt=""
-                        className='w-3/4 rounded-xl'
+                        <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
+                        <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
+                        <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
+                    </div>
+                    <div>
+                        <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
+                        <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
+                        <div><BlogShorter img={demo} placeName="place Name" date="14 Oct 2024" duration="5min read" /></div>
+                        <div className='text-blue-400 hover:cursor-pointer p-2'>Explore All Blogs</div>
+                    </div>
+                </div>
+                <div className='lg:w-1/2 p-2'>
+                    <div>
+                        <Image
+                            src={demo}
+                            alt=""
+                            className='w-3/4 rounded-xl'
                         />
                     </div>
                     <div>

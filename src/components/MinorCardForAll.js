@@ -4,7 +4,7 @@ import Image from 'next/image'
 const MinorCardForAll = (props) => {
     return (
         <div>
-            <div className='w-[18vw] border-2 flex flex-col justify-start items-start gap-x-3 rounded-lg'>
+            <div className='w-9/12 mx-auto lg:w-[18vw] border-2 flex flex-col justify-start items-start gap-x-3 rounded-lg'>
                 <div>
                     <Image
                         className='rounded-tl-lg rounded-tr-lg'
