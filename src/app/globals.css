@@ -5,10 +5,11 @@
 * {
   margin: 0;
   padding: 0;
+  color: black;
 }
-body{
+/* *{
   background-color: #e9f2f6;
-}
+} */
 .mainImg {
   background-image: url("../public/Img/main.jpg");
   height: 100vh;
