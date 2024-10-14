@@ -12,7 +12,7 @@
 // export default function Home() {
 //   return (
 //     <>
-      {/* <main className='container mx-auto'>
+{/* <main className='container mx-auto'>
         <article>
           <section>
             <HeroSection />
@@ -53,24 +53,26 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Plane, Search, MapPin, Calendar, DollarSign, ArrowRight, Menu } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import demo from "@/public/Img/demo.jpg"
+import Navbar from '@/components/Navbar'
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-    { href: "#", label: "Home" },
-    { href: "#", label: "Destinations" },
-    { href: "#", label: "About" },
-    { href: "#", label: "Hospitals" },
-    { href: "#", label: "Hotels" },
-    { href: "#", label: "Resturants" },
-    { href: "#", label: "Maps" },
-    { href: "#", label: "Ai-Bot" },
+    { href: "/", label: "Home" },
+    { href: "/pages/Destination", label: "Destinations" },
+    { href: "/pages/About", label: "About" },
+    { href: "/pages/Hospital", label: "Hospitals" },
+    { href: "/pages/Hotel", label: "Hotels" },
+    { href: "/pages/Resturants", label: "Resturants" },
+    { href: "/pages/Maps", label: "Maps" },
+    { href: "/pages/AiBot", label: "Ai-Bot" },
   ]
 
   return (
     <div className="flex flex-col min-h-screen ">
-      <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
+      {/* <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
         <Link className="flex items-center justify-center" href="#">
           <Plane className="h-6 w-6" />
           <span className="ml-2 text-lg font-bold">Wanderlust Travel</span>
@@ -104,9 +106,10 @@ export default function HomePage() {
             </nav>
           </SheetContent>
         </Sheet>
-      </header>
+      </header> */}
+      {/* <Navbar/> */}
       <main className="flex-1 ">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cover bg-center" style={{backgroundImage: 'url("/placeholder.svg?height=600&width=1200")'}}>
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cover bg-center" style={{ backgroundImage: 'url("demo")' }}>
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -143,7 +146,7 @@ export default function HomePage() {
                 alt="About Wanderlust Travel"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
                 height={300}
-                src="/placeholder.svg?height=300&width=400"
+                src={demo}
                 width={400}
               />
             </div>
@@ -155,9 +158,9 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Hot Deals</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "Paris Getaway", price: "$999", duration: "5 days", image: "/placeholder.svg?height=200&width=300" },
-                { title: "Bali Beach Retreat", price: "$1299", duration: "7 days", image: "/placeholder.svg?height=200&width=300" },
-                { title: "Tokyo Adventure", price: "$1499", duration: "6 days", image: "/placeholder.svg?height=200&width=300" },
+                { title: "Paris Getaway", price: "$999", duration: "5 days", image: "/public/Img/demo.jpg" },
+                { title: "Bali Beach Retreat", price: "$1299", duration: "7 days", image: "/public/Img/demo.jpg" },
+                { title: "Tokyo Adventure", price: "$1499", duration: "6 days", image: "/public/Img/demo.jpg" },
               ].map((deal, index) => (
                 <Card key={index}>
                   <CardHeader>
@@ -196,9 +199,9 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Latest from Our Blog</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "10 Must-Visit Hidden Gems in Europe", image: "/placeholder.svg?height=200&width=300" },
-                { title: "Sustainable Travel: Tips for Eco-Friendly Adventures", image: "/placeholder.svg?height=200&width=300" },
-                { title: "Culinary Journeys: Exploring World Cuisines", image: "/placeholder.svg?height=200&width=300" },
+                { title: "10 Must-Visit Hidden Gems in Europe", image: { demo } },
+                { title: "Sustainable Travel: Tips for Eco-Friendly Adventures", image: { demo } },
+                { title: "Culinary Journeys: Exploring World Cuisines", image: { demo } },
               ].map((post, index) => (
                 <Card key={index}>
                   <CardHeader>
@@ -242,12 +245,12 @@ export default function HomePage() {
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { name: "Eiffel Tower, Paris", image: "/placeholder.svg?height=200&width=300" },
-                { name: "Colosseum, Rome", image: "/placeholder.svg?height=200&width=300" },
-                { name: "Machu Picchu, Peru", image: "/placeholder.svg?height=200&width=300" },
-                { name: "Taj Mahal, India", image: "/placeholder.svg?height=200&width=300" },
-                { name: "Great Wall, China", image: "/placeholder.svg?height=200&width=300" },
-                { name: "Petra, Jordan", image: "/placeholder.svg?height=200&width=300" },
+                { name: "Eiffel Tower, Paris", image: { demo } },
+                { name: "Colosseum, Rome", image: { demo } },
+                { name: "Machu Picchu, Peru", image: { demo } },
+                { name: "Taj Mahal, India", image: { demo } },
+                { name: "Great Wall, China", image: { demo } },
+                { name: "Petra, Jordan", image: { demo } },
               ].map((place, index) => (
                 <Card key={index}>
                   <CardHeader>
