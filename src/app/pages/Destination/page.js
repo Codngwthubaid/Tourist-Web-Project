@@ -102,9 +102,9 @@ const page = () => {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">
               Popular Destinations
             </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-center">
               {destinations.map((destination) => (
-                <Card key={destination.id} className="w-[90vw]">
+                <Card key={destination.id} className="w-[90vw] sm:w-[45vw] lg:w-[30vw]">
                   <CardHeader>
                     <Image
                       alt={destination.name}
