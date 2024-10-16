@@ -4,7 +4,7 @@ import WeatherAPI from "@/components/WeatherAPI"
 const page = () => {
   return (
     <div>
-      <WeatherAPI/>
+      
     </div>
   )
 }

@@ -1,24 +1,18 @@
 "use client"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Search, MapPin, Calendar, DollarSign, ArrowRight, Hotel } from "lucide-react"
+import "./globals.css"
+import {Calendar, DollarSign } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import demo from "@/public/Img/demo.jpg"
-import b2 from "@/public/Img/b2.jpg"
-import b3 from "@/public/Img/b3.jpg"
-import b4 from "@/public/Img/b4.jpg"
-import k2 from "@/public/Img/k2.jpg"
-import k3 from "@/public/Img/k3.webp"
-import k4 from "@/public/Img/k4.jpg"
-import h2 from "@/public/Img/h2.jpg"
-import h3 from "@/public/Img/h3.jpg"
-import h1 from "@/public/Img/h1.jpg"
 import Hotel1 from "@/public/Img/Hotel1.jpg"
 import Hotel2 from "@/public/Img/Hotel2.jpg"
 import Hotel3 from "@/public/Img/Hotel3.jpg"
+import b2 from "@/public/Img/b2.jpg"
+import m5 from "@/public/Img/m5.jpg"
+import k2 from "@/public/Img/k2.jpg"
+import m2 from "@/public/Img/m2.jpg"
+import m3 from "@/public/Img/m3.jpg"
+import k4 from "@/public/Img/k4.jpg"
 
 // Mock function to simulate API call
 const searchPlaces = async (query) => {
@@ -27,8 +21,6 @@ const searchPlaces = async (query) => {
 
   // Mock data
   const places = [
-    // "New York", "London", "Paris", "Tokyo", "Sydney",
-    // "Berlin", "Rome", "Madrid", "Moscow", "Beijing"
     "Nanital", "Mussoorie", "Haridwar", "Kedarnath", "Budrinath"
   ]
 
@@ -67,215 +59,589 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen ">
       {/* <CodedCarousel/> */}
       <main className="flex-1 ">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cover bg-center" style={{ backgroundImage: 'url("demo")' }}>
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-black">
-                  Discover Your Next Adventure
-                </h1>
-                <p className="mx-auto max-w-[700px] text-black md:text-xl">
-                  "Devbhoomi Yatra: Your Journey to the Heart of Uttarakhand's Spiritual and Natural Wonders!"
-                </p>
-              </div>
+ 
 
-              {/* Search Section */}
-              <Card className="w-full max-w-md mx-auto">
-                <div className="flex space-x-2">
-                  <Input
-                    type="text"
-                    placeholder="Enter place name"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                  />
-                  <Button onClick={handleSearch} disabled={isLoading}>
-                    {isLoading ? 'Searching...' : <Search className="h-4 w-4" />}
-                  </Button>
+        {/* Adding code */}
+
+        <header>
+          <div class="container">
+            <nav class="navbar">
+              <div class="logo">DevBhoomi <span>Yatra<b>.</b></span></div>
+              <div class="nav-links">
+                <a href="/pages/Destination">Destinations</a>
+                <a href="/pages/About">About</a>
+                <a href="/pages/Contact">Contact</a>
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="right-section">
+                <a href="#!" class="btn btn-outline">Login</a>
+                <a href="#!" class="btn">Sign Up</a>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <main>
+          <section id="home">
+            <div class="container">
+              <div class="carousel-container">
+                <div class="carousel-slide fade">
+                  <Image src={m2} alt="Image 1" width={200} height={200}/>
+                    <div class="carousel-text">Auli</div>
+                </div>
+                <div class="carousel-slide fade">
+                  <Image src={m2} alt="Image 2" width={200} height={200}/>
+                    <div class="carousel-text">Tehri Dam</div>
+                </div>
+                <div class="carousel-slide fade">
+                  <Image src={m2} alt="Image 3" width={200} height={200}/>
+                    <div class="carousel-text">Vasuki Tal</div>
                 </div>
 
-                {error && <p className="text-red-500 mt-2">{error}</p>}
-                {results.length > 0 && (
-                  <div className="mt-4">
-                    <ul className="space-y-1">
-                      {results.map((place, index) => {
-                        console.log(`Place: ${place}`);
-                        return (
-                          <li key={index} className="bg-secondary  bg-white text-black p-2 rounded">
-                            <Link href={`/pages/Destination/${place}`}>{place}</Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
-
-                {results.length === 0 && !isLoading && !error && searchTerm && (
-                  <p className="mt-2 text-muted-foreground">No results found.</p>
-                )}
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">About Us</h2>
-            <div className="grid gap-6 lg:grid-cols-2 items-center">
-              <div className="space-y-4">
-                <p className="text-gray-500 dark:text-gray-400 text-sm">
-
-
-
-                  About Devbhoomi Yatra
-                  At Devbhoomi Yatra, we are dedicated to providing an enriching travel experience in the breathtaking state of Uttarakhand, also known as the "Land of Gods." Our platform offers a comprehensive suite of features designed to enhance your journey, ensuring that you can explore the region with ease and comfort.
-                  Key Features:
-                  Hotel Reservation: Simply locate and book that perfect accommodation whether it is a luxurious hotel or a small homestay.
-                  Local Foods and Restaurants Locator: Enjoy the local dishes by looking at our recommended restaurant for authentic flavors of Uttarakhand.
-                  Taxi Services: Convenient taxi reservations are available for seamless transportation throughout your travels.
-                  Interactive Maps: To navigate, use our interactive maps featuring famous areas and local attractions, which can help in navigating the breathtaking landscapes and cultural sites.
-                  Live Weather Conditions: I can view current weather conditions and assess them to better plan my activities.
-                  Emergency Contacts and Safety Assistance: We prioritize your safety by providing real-time emergency contacts and a dedicated safety assistant to assist you during your travels.
-                  Homestay and Rural Tourism Experience: Unravel the local culture with unique homestay options and rural tourism experiences, which touch the heart of Uttarakhand.
-                  Join us on the Devbhoomi Yatra - an unparalleled journey of spirituality and adventure set amidst the rich heritage of Uttarakhand.
-                </p>
-                <Button>Learn More About Us</Button>
+                {/* <!-- Navigation Arrows --> */}
+                <div class="nav-arrows">
+                  <button class="arrow left" onclick="changeSlide(-1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 12l14 0" />
+                      <path d="M5 12l4 4" />
+                      <path d="M5 12l4 -4" />
+                    </svg>
+                  </button>
+                  <button class="arrow right" onclick="changeSlide(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 12l14 0" />
+                      <path d="M15 16l4 -4" />
+                      <path d="M15 8l4 4" />
+                    </svg>
+                  </button>
+                </div>
               </div>
-              <Image
-                alt="About Wanderlust Travel"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
-                height={300}
-                src={demo}
-                width={400}
-              />
+            </div>
+          </section>
+
+          <div class="about container-fluid">
+            <h2 class="heading">About Uttrakhand</h2>
+            <div class="row">
+              <div class="col-5">
+                <Image src={m2} class="hero-Image" srcset="" width={200} height={200}/>
+              </div>
+
+              <div class="col-7">
+                <p class="hero-text">Paradise for nature lovers and adventure enthusiasts. Nestled in the Himalayas,
+                  this state offers a perfect blend of spiritual and natural experiences. The holy towns of
+                  Rishikesh and Haridwar draw pilgrims seeking peace along the Ganges, while scenic <span>hill
+                    stations</span> like Nainital and Mussoorie offer breathtaking vistas and serene lakes. For
+                  trekkers and adventure seekers, places like Auli and Chopta provide thrilling hikes and skiing
+                  opportunities amidst <span>snow-capped peaks</span>. Wildlife lovers can explore the famous Jim
+                  Corbett National Park, home to Bengal tigers and rich biodiversity. With its <span>diverse
+                    landscape</span> and spiritual heritage, Uttarakhand promises a rejuvenating and
+                  exhilarating escape from urban life.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-md-12">
+                <div class="about-panel panel-large panel-left">
+                  <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M15 8h.01" />
+                      <path d="M11.5 21h-5.5a3 3 0 0 1 -3 -3v-12a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v5" />
+                      <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l1.5 1.5" />
+                      <path
+                        d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>
+                  </button>
+                  <h3>Heart Warming Scenarios you have ever seen.</h3>
+                  <p>Experience the elegance of our Light Mode, designed to offer a clean and bright interface.
+                    Enjoy a visually pleasing and distraction-free environment.</p>
+                  <Image src={m2} width={200} height={200} alt="" class="responsiv-Image" />
+                </div>
+              </div>
+              <div class="col-6 col-md-12">
+                <div class="about-panel panel-large panel-right">
+                  <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path
+                        d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                      <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+                      <path d="M19 11h2m-1 -1v2" />
+                    </svg>
+                  </button>
+                  <h3>A Sleek and Modern Look for Comfortable Viewing</h3>
+                  <p>Discover the sophistication of our Dark Mode, crafted to provide a sleek and modern look.
+                    Perfect for low-light settings, and engaging appearance.</p>
+                  <Image src={m2} width={200} height={200} alt="" class="responsiv-Image" />
+                </div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white ">
+          <h2 class="heading">Discover Destinations</h2>
+          <div class="scrolling-wrapper">
+            <div class="card">
+              <Image src={m2} width={200} height={200} alt="Image 1" />
+                <h2 class="card-title">Auli</h2>
+            </div>
+            <div class="card">
+              <Image src={m2} width={200} height={200} alt="Image 2" />
+                <h2 class="card-title">Chamba</h2>
+            </div>
+            <div class="card">
+              <Image src={m2} width={200} height={200} alt="Image 3" />
+                <h2 class="card-title">Almora</h2>
+            </div>
+            <div class="card">
+              <Image src={m2} width={200} height={200} alt="Image 4" />
+                <h2 class="card-title">Vasuki Tal</h2>
+            </div>
+            <div class="card">
+              <Image src={m2} width={200} height={200} alt="Image 4" />
+                <h2 class="card-title">Pauri Garhwal</h2>
+            </div>
+          </div>
+        </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* Regional Places */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Popular Places</h2>
-            <div className="mb-8">
-              <form className="flex space-x-2 max-w-md mx-auto">
-                <Input className="flex-1" placeholder="Search places" type="text" />
-                <Button type="submit">
-                  <Search className="h-4 w-4 mr-2" />
-                  Search
-                </Button>
-              </form>
-            </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Popular Regional Places</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                { name: "Eiffel Tower, Paris", image: b2 },
-                { name: "Colosseum, Rome", image: b3 },
-                { name: "Machu Picchu, Peru", image: b4 },
-                { name: "Taj Mahal, India", image: k2 },
-                { name: "Great Wall, China", image: k3 },
-                { name: "Petra, Jordan", image: k4 },
-              ].map((place, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <Image
-                      alt={place.name}
-                      className="aspect-video object-cover rounded-t-lg"
-                      height={200}
-                      src={place.image}
-                      width={300}
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <CardTitle className="flex items-center">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      {place.name}
-                    </CardTitle>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full text-white">Learn More</Button>
-                  </CardFooter>
-                </Card>
-              ))}
+
+              {/* Paris Getaway Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Bali Beach Retreat Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={m2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Tokyo Adventure Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k4}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={m5}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white ">
+        {/* Destinational Places */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Popular Destinational Places</h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {/* Paris Getaway Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={m3}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Bali Beach Retreat Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={m2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Tokyo Adventure Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k4}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k4}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Hot Deals</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                { title: "Paris Getaway", price: "$999", duration: "5 days", image: Hotel1},
-                { title: "Bali Beach Retreat", price: "$1299", duration: "7 days", image: Hotel2 },
-                { title: "Tokyo Adventure", price: "$1499", duration: "6 days", image:  Hotel3},
-              ].map((deal, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <Image
-                      alt={deal.title}
-                      className="aspect-video object-cover rounded-t-lg"
-                      height={200}
-                      src={deal.image}
-                      width={300}
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <CardTitle>{deal.title}</CardTitle>
-                    <CardDescription>
-                      <div className="flex items-center mt-2">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        {deal.duration}
-                      </div>
-                      <div className="flex items-center mt-2">
-                        <DollarSign className="h-4 w-4 mr-2" />
-                        {deal.price}
-                      </div>
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter>
-                    <Button className="w-full">Book Now</Button>
-                  </CardFooter>
-                </Card>
-              ))}
+
+              {/* Paris Getaway Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Paris Getaway"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={Hotel1}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Paris Getaway</h3>
+                  <div className="flex items-center mt-2">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    <span>5 days</span>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <DollarSign className="h-4 w-4 mr-2" />
+                    <span>$999</span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Book Now
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Bali Beach Retreat Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Bali Beach Retreat"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={Hotel2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Bali Beach Retreat</h3>
+                  <div className="flex items-center mt-2">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    <span>7 days</span>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <DollarSign className="h-4 w-4 mr-2" />
+                    <span>$1299</span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Book Now
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Tokyo Adventure Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Tokyo Adventure"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={Hotel3}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Tokyo Adventure</h3>
+                  <div className="flex items-center mt-2">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    <span>6 days</span>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <DollarSign className="h-4 w-4 mr-2" />
+                    <span>$1499</span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Book Now
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-16 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Latest from Our Blog</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Popular Blogs</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                { title: "10 Must-Visit Hidden Gems in Europe", image: h1 },
-                { title: "Sustainable Travel: Tips for Eco-Friendly Adventures", image: h2 },
-                { title: "Culinary Journeys: Exploring World Cuisines", image: h3 },
-              ].map((post, index) => (
-                <Card key={index} className="bg-white">
-                  <CardHeader>
-                    <Image
-                      alt={post.title}
-                      className="aspect-video object-cover rounded-t-lg"
-                      height={200}
-                      src={post.image}
-                      width={300}
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <CardTitle>{post.title}</CardTitle>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="text-white">Read More</Button>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-            <div className="mt-8 text-center">
-              <Button>
-                View All Posts
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              {/* Paris Getaway Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={k2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Regional Places</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Bali Beach Retreat Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={m5}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Destinational Places</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Tokyo Adventure Card */}
+              <div className="bg-white rounded-lg shadow-md">
+                <Image
+                  alt="Temple"
+                  className="aspect-video object-cover rounded-t-lg"
+                  src={b2}
+                  height={200}
+                  width={300}
+                />
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold">Temple</h3>
+                </div>
+                <div className="p-4">
+                  <Link href="/pages/Hotel">
+                    <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Wanderlust Travel. All rights reserved.</p>

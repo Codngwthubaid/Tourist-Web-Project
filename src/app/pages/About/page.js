@@ -10,6 +10,32 @@ import Arun from "@/public/Img/Arun.jpg"
 const page = () => {
   return (
     <div>
+        <header>
+          <div class="container">
+            <nav class="navbar">
+              <div class="logo">DevBhoomi <span>Yatra<b>.</b></span></div>
+              <div class="nav-links">
+                <a href="/pages/Destination">Destinations</a>
+                <a href="/pages/About">About</a>
+                <a href="/pages/Contact">Contact</a>
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                  </svg>
+                </a>
+              </div>
+              <div class="right-section">
+                <a href="#!" class="btn btn-outline">Login</a>
+                <a href="#!" class="btn">Sign Up</a>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+
       <div className="container mx-auto px-4 py-8">
         <section className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">About Devbhumi Yatra</h1>
