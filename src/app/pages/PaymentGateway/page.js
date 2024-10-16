@@ -10,7 +10,7 @@ const Page = () => {
         setIsProcessing(true)
 
         try {
-            const response = await fetch("/api/Payment", { method: "post" })
+            const response = await fetch("/api/UserData/Payment", { method: "post" })
             const data = await response.json()
 
             // Init Razorpay

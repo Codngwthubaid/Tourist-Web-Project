@@ -1,18 +1,4 @@
 "use client"
-// import React from 'react'
-
-// const page = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default page
-
-'use client'
-
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -20,7 +6,7 @@ import { Loader2, MapPin, Compass } from "lucide-react"
 import Link from "next/link"
 
 // Note: Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual Google Maps API key
-const GOOGLE_MAPS_API_KEY = 'AIzaSyAJaP5CGp_Igz2l_c8j6L2I8p0JKaTJmrQ'
+const map_key =  process.env.GOOGLE_MAPS_API_KEY
 
 export default function MapPage() {
   const [location, setLocation] = useState(null)
@@ -30,7 +16,7 @@ export default function MapPage() {
 
   useEffect(() => {
     const script = document.createElement('script')
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}`
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${map_key}`
     script.async = true
     script.onload = initMap
     document.body.appendChild(script)
