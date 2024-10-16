@@ -81,8 +81,8 @@ export default function HomePage() {
                 </a>
               </div>
               <div class="right-section">
-                <a href="#!" class="btn btn-outline">Login</a>
-                <a href="#!" class="btn">Sign Up</a>
+                <a href="/pages/SignUp" class="btn btn-outline">Login</a>
+                <a href="/pages/Login" class="btn">Sign Up</a>
               </div>
             </nav>
           </div>
@@ -219,24 +219,6 @@ export default function HomePage() {
             </div>
           </div>
         </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         {/* Regional Places */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6">

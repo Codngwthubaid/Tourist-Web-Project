@@ -75,7 +75,7 @@ const page = () => {
 
         <h2 className="text-3xl font-bold tracking-tighter m-10 sm:text-4xl md:text-5xl mb-8">Near By : Hotels</h2>
 
-        <section className='border border-red-600 flex'>
+        <section className='flex items-start'>
           <div>
             <div className="border m-10 rounded-lg shadow-lg p-4 flex max-w-2xl">
               {/* Left Section - Image */}
@@ -171,9 +171,9 @@ const page = () => {
                     ₹ 1,379.83 <span className="text-sm text-gray-500">per night</span>
                   </div>
                   <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
-                    <Link href="/pages/HotelDetails/HotelDetailsFirst">
+                    <a href="/pages/HotelDetails">
                       Check availability
-                    </Link>
+                    </a>
                   </button>
                 </div>
               </div>
