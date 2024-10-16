@@ -83,6 +83,7 @@ import { Button } from "@/components/ui/button"
 import { Plane, Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Link from "next/link"
+import ModeToggle from "@/components/DarkMode"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -90,10 +91,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/pages/Destination", label: "Destinations" },
-    { href: "/pages/About", label: "About" },
-    { href: "/pages/Hospital", label: "Hospitals" },
     { href: "/pages/Hotel", label: "Hotels" },
-    { href: "/pages/Resturants", label: "Resturants" },
     { href: "/pages/Maps", label: "Maps" },
     { href: "/pages/AiBot", label: "Ai-Bot" },
   ]
@@ -133,6 +131,7 @@ export default function Navbar() {
               ))}
             </nav>
           </SheetContent>
+
         </Sheet>
       </header>
     </>

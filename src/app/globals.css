@@ -7,9 +7,9 @@
   padding: 0;
   color: black;
 }
-/* *{
+*{
   background-color: #e9f2f6;
-} */
+}
 .mainImg {
   background-image: url("../public/Img/main.jpg");
   height: 100vh;
