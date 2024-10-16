@@ -4,7 +4,7 @@ const page = () => {
   return (
     <div>
        <div className='flex justify-center items-center'>
-         <iframe className='h-[85vh] w-1/2' src="https://cdn.botpress.cloud/webchat/v2/shareable.html?botId=bda9039a-6645-4cab-82e0-6a9341440546 " frameborder="0"></iframe>
+         <iframe height="430" width="350" src="https://bot.dialogflow.com/df8cbbe5-e8a4-4d73-b3eb-56542e4b4ed6"></iframe>
     </div>
     </div>
   )

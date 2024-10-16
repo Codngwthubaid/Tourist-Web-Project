@@ -11,33 +11,38 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-    { href: "/", label: "Home" },
+    { href: "/pages/About", label: "About" },
     { href: "/pages/Destination", label: "Destinations" },
     { href: "/pages/Hospital", label: "Hospitals" },
     { href: "/pages/Resturants", label: "Resturants" },
     { href: "/pages/Hotel", label: "Hotels" },
     { href: "/pages/Maps", label: "Maps" },
     { href: "/pages/AiBot", label: "Ai-Bot" },
+    { href: "/pages/Contact", label: "Contact" },
   ]
 
   return (
     <>
       <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
-        <Link className="flex items-center justify-center" href="#">
+        <Link className="flex items-center justify-center" href="/">
           <Image 
           className='w-16'
           src={MainLogo}
           alt="MainLogo"
           />
-          <span className="ml-2 text-2xl font-bold">Devbhumi Yatra</span>
+          <span className="text-2xl font-bold">Devbhumi Yatra</span>
         </Link>
-        <nav className="ml-auto hidden md:flex gap-4 sm:gap-6">
+        <nav className="hidden md:flex gap-4 sm:gap-6">
           {navLinks.map((link, index) => (
             <Link key={index} className="text-sm font-medium hover:underline underline-offset-4" href={link.href}>
               {link.label}
             </Link>
           ))}
         </nav>
+        <div className='flex gap-x-4'>
+        <Button >Sign In</Button>
+        <Button >Login</Button>
+        </div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" className="px-0 text-base hover:bg-transparent focus:ring-0 md:hidden">

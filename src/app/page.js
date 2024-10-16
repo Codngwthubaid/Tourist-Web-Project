@@ -1,31 +1,71 @@
 "use client"
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Plane, Search, MapPin, Calendar, DollarSign, ArrowRight, Menu } from "lucide-react"
+import { Search, MapPin, Calendar, DollarSign, ArrowRight, Hotel } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import demo from "@/public/Img/demo.jpg"
-import Navbar from '@/components/Navbar'
+import b2 from "@/public/Img/b2.jpg"
+import b3 from "@/public/Img/b3.jpg"
+import b4 from "@/public/Img/b4.jpg"
+import k2 from "@/public/Img/k2.jpg"
+import k3 from "@/public/Img/k3.webp"
+import k4 from "@/public/Img/k4.jpg"
+import h2 from "@/public/Img/h2.jpg"
+import h3 from "@/public/Img/h3.jpg"
+import h1 from "@/public/Img/h1.jpg"
+import Hotel1 from "@/public/Img/Hotel1.jpg"
+import Hotel2 from "@/public/Img/Hotel2.jpg"
+import Hotel3 from "@/public/Img/Hotel3.jpg"
+
+// Mock function to simulate API call
+const searchPlaces = async (query) => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 1000))
+
+  // Mock data
+  const places = [
+    // "New York", "London", "Paris", "Tokyo", "Sydney",
+    // "Berlin", "Rome", "Madrid", "Moscow", "Beijing"
+    "Nanital", "Mussoorie", "Haridwar", "Kedarnath", "Budrinath"
+  ]
+
+  // Filter places based on query
+  return places.filter(place => place.toLowerCase().includes(query.toLowerCase()))
+}
+
 
 export default function HomePage() {
-  const [isOpen, setIsOpen] = useState(false)
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/pages/Destination", label: "Destinations" },
-    { href: "/pages/About", label: "About" },
-    { href: "/pages/Hospital", label: "Hospitals" },
-    { href: "/pages/Hotel", label: "Hotels" },
-    { href: "/pages/Resturants", label: "Resturants" },
-    { href: "/pages/Maps", label: "Maps" },
-    { href: "/pages/AiBot", label: "Ai-Bot" },
-  ]
+  const [searchTerm, setSearchTerm] = useState('')
+  const [results, setResults] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  const handleSearch = async () => {
+    if (!searchTerm.trim()) {
+      setError('Please enter a place name')
+      return
+    }
+
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const searchResults = await searchPlaces(searchTerm)
+      setResults(searchResults)
+    } catch (err) {
+      setError('An error occurred while searching. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen ">
+      {/* <CodedCarousel/> */}
       <main className="flex-1 ">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cover bg-center" style={{ backgroundImage: 'url("demo")' }}>
           <div className="container px-4 md:px-6">
@@ -35,17 +75,45 @@ export default function HomePage() {
                   Discover Your Next Adventure
                 </h1>
                 <p className="mx-auto max-w-[700px] text-black md:text-xl">
-                  Explore breathtaking destinations around the world and create unforgettable memories.</p>
+                  "Devbhoomi Yatra: Your Journey to the Heart of Uttarakhand's Spiritual and Natural Wonders!"
+                </p>
               </div>
-              <div className="w-full max-w-sm space-y-2">
-                <form className="flex space-x-2">
-                  <Input className="max-w-lg flex-1" placeholder="Search destinations" type="text" />
-                  <Button type="submit">
-                    <Search className="h-4 w-4 mr-2" />
-                    Search
+
+              {/* Search Section */}
+              <Card className="w-full max-w-md mx-auto">
+                <div className="flex space-x-2">
+                  <Input
+                    type="text"
+                    placeholder="Enter place name"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                  />
+                  <Button onClick={handleSearch} disabled={isLoading}>
+                    {isLoading ? 'Searching...' : <Search className="h-4 w-4" />}
                   </Button>
-                </form>
-              </div>
+                </div>
+
+                {error && <p className="text-red-500 mt-2">{error}</p>}
+                {results.length > 0 && (
+                  <div className="mt-4">
+                    <ul className="space-y-1">
+                      {results.map((place, index) => {
+                        console.log(`Place: ${place}`);
+                        return (
+                          <li key={index} className="bg-secondary  bg-white text-black p-2 rounded">
+                            <Link href={`/pages/Destination/${place}`}>{place}</Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+
+                {results.length === 0 && !isLoading && !error && searchTerm && (
+                  <p className="mt-2 text-muted-foreground">No results found.</p>
+                )}
+              </Card>
             </div>
           </div>
         </section>
@@ -55,8 +123,21 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">About Us</h2>
             <div className="grid gap-6 lg:grid-cols-2 items-center">
               <div className="space-y-4">
-                <p className="text-gray-500 dark:text-gray-400">
-                  Wanderlust Travel is your gateway to extraordinary adventures. With over a decade of experience, we specialize in crafting unforgettable journeys tailored to your desires. Our expert team is dedicated to providing personalized service, ensuring every aspect of your trip exceeds expectations.
+                <p className="text-gray-500 dark:text-gray-400 text-sm">
+
+
+
+                  About Devbhoomi Yatra
+                  At Devbhoomi Yatra, we are dedicated to providing an enriching travel experience in the breathtaking state of Uttarakhand, also known as the "Land of Gods." Our platform offers a comprehensive suite of features designed to enhance your journey, ensuring that you can explore the region with ease and comfort.
+                  Key Features:
+                  Hotel Reservation: Simply locate and book that perfect accommodation whether it is a luxurious hotel or a small homestay.
+                  Local Foods and Restaurants Locator: Enjoy the local dishes by looking at our recommended restaurant for authentic flavors of Uttarakhand.
+                  Taxi Services: Convenient taxi reservations are available for seamless transportation throughout your travels.
+                  Interactive Maps: To navigate, use our interactive maps featuring famous areas and local attractions, which can help in navigating the breathtaking landscapes and cultural sites.
+                  Live Weather Conditions: I can view current weather conditions and assess them to better plan my activities.
+                  Emergency Contacts and Safety Assistance: We prioritize your safety by providing real-time emergency contacts and a dedicated safety assistant to assist you during your travels.
+                  Homestay and Rural Tourism Experience: Unravel the local culture with unique homestay options and rural tourism experiences, which touch the heart of Uttarakhand.
+                  Join us on the Devbhoomi Yatra - an unparalleled journey of spirituality and adventure set amidst the rich heritage of Uttarakhand.
                 </p>
                 <Button>Learn More About Us</Button>
               </div>
@@ -71,14 +152,60 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white ">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Popular Places</h2>
+            <div className="mb-8">
+              <form className="flex space-x-2 max-w-md mx-auto">
+                <Input className="flex-1" placeholder="Search places" type="text" />
+                <Button type="submit">
+                  <Search className="h-4 w-4 mr-2" />
+                  Search
+                </Button>
+              </form>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                { name: "Eiffel Tower, Paris", image: b2 },
+                { name: "Colosseum, Rome", image: b3 },
+                { name: "Machu Picchu, Peru", image: b4 },
+                { name: "Taj Mahal, India", image: k2 },
+                { name: "Great Wall, China", image: k3 },
+                { name: "Petra, Jordan", image: k4 },
+              ].map((place, index) => (
+                <Card key={index}>
+                  <CardHeader>
+                    <Image
+                      alt={place.name}
+                      className="aspect-video object-cover rounded-t-lg"
+                      height={200}
+                      src={place.image}
+                      width={300}
+                    />
+                  </CardHeader>
+                  <CardContent>
+                    <CardTitle className="flex items-center">
+                      <MapPin className="h-4 w-4 mr-2" />
+                      {place.name}
+                    </CardTitle>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="outline" className="w-full text-white">Learn More</Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white ">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Hot Deals</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "Paris Getaway", price: "$999", duration: "5 days", image: "/public/Img/demo.jpg" },
-                { title: "Bali Beach Retreat", price: "$1299", duration: "7 days", image: "/public/Img/demo.jpg" },
-                { title: "Tokyo Adventure", price: "$1499", duration: "6 days", image: "/public/Img/demo.jpg" },
+                { title: "Paris Getaway", price: "$999", duration: "5 days", image: Hotel1},
+                { title: "Bali Beach Retreat", price: "$1299", duration: "7 days", image: Hotel2 },
+                { title: "Tokyo Adventure", price: "$1499", duration: "6 days", image:  Hotel3},
               ].map((deal, index) => (
                 <Card key={index}>
                   <CardHeader>
@@ -112,16 +239,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-16 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Latest from Our Blog</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "10 Must-Visit Hidden Gems in Europe", image: { demo } },
-                { title: "Sustainable Travel: Tips for Eco-Friendly Adventures", image: { demo } },
-                { title: "Culinary Journeys: Exploring World Cuisines", image: { demo } },
+                { title: "10 Must-Visit Hidden Gems in Europe", image: h1 },
+                { title: "Sustainable Travel: Tips for Eco-Friendly Adventures", image: h2 },
+                { title: "Culinary Journeys: Exploring World Cuisines", image: h3 },
               ].map((post, index) => (
-                <Card key={index}>
+                <Card key={index} className="bg-white">
                   <CardHeader>
                     <Image
                       alt={post.title}
@@ -135,7 +262,7 @@ export default function HomePage() {
                     <CardTitle>{post.title}</CardTitle>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline">Read More</Button>
+                    <Button variant="outline" className="text-white">Read More</Button>
                   </CardFooter>
                 </Card>
               ))}
@@ -149,51 +276,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">Popular Places</h2>
-            <div className="mb-8">
-              <form className="flex space-x-2 max-w-md mx-auto">
-                <Input className="flex-1" placeholder="Search places" type="text" />
-                <Button type="submit">
-                  <Search className="h-4 w-4 mr-2" />
-                  Search
-                </Button>
-              </form>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                { name: "Eiffel Tower, Paris", image: { demo } },
-                { name: "Colosseum, Rome", image: { demo } },
-                { name: "Machu Picchu, Peru", image: { demo } },
-                { name: "Taj Mahal, India", image: { demo } },
-                { name: "Great Wall, China", image: { demo } },
-                { name: "Petra, Jordan", image: { demo } },
-              ].map((place, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <Image
-                      alt={place.name}
-                      className="aspect-video object-cover rounded-t-lg"
-                      height={200}
-                      src={place.image}
-                      width={300}
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <CardTitle className="flex items-center">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      {place.name}
-                    </CardTitle>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full">Learn More</Button>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Wanderlust Travel. All rights reserved.</p>
@@ -207,6 +289,6 @@ export default function HomePage() {
         </nav>
       </footer>
     </div>
-    
+
   )
 }
