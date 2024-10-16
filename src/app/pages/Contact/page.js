@@ -1,10 +1,11 @@
 'use client'
-import Recat, { useState } from 'react'
+import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { MapPin, Phone, Mail } from 'lucide-react'
+import Link from 'next/link'
 
 const page = () => {
 
@@ -37,27 +38,30 @@ const page = () => {
 
   return (
     <div>
-
       <header>
         <div class="container">
           <nav class="navbar">
             <div class="logo">DevBhoomi <span>Yatra<b>.</b></span></div>
             <div class="nav-links">
-              <a href="/pages/Destination">Destinations</a>
-              <a href="/pages/About">About</a>
-              <a href="/pages/Contact">Contact</a>
-              <a href="#">
+              <Link href="/pages/Destination">Destinations</Link>
+              <Link href="/pages/About">About</Link>
+              <Link href="/pages/Contact">Contact</Link>
+              <select>
+                <option value="Booking">Booking</option>
+              </select>
+              <Link href="/pages/Contact">Contact</Link>
+              <Link href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
                   <path d="M21 21l-6 -6" />
                 </svg>
-              </a>
+              </Link>
             </div>
             <div class="right-section">
-              <a href="#!" class="btn btn-outline">Login</a>
-              <a href="#!" class="btn">Sign Up</a>
+              <Link href="#!" class="btn btn-outline">Login</Link>
+              <Link href="#!" class="btn">Sign Up</Link>
             </div>
           </nav>
         </div>
@@ -67,7 +71,7 @@ const page = () => {
         <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card>
+          <Card className="bg-white">
             <CardHeader>
               <CardTitle>Get in Touch</CardTitle>
             </CardHeader>

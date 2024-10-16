@@ -92,7 +92,7 @@ export default function HomePage() {
             <div class="container">
               <div class="carousel-container">
                 <div class="carousel-slide fade">
-                  <Image src={m2} alt="Image 1" width={200} height={200}/>
+                  <Image src={m2} alt="Image 1" className="border border-red-500" width={200} height={200}/>
                     <div class="carousel-text">Auli</div>
                 </div>
                 <div class="carousel-slide fade">
@@ -130,6 +130,7 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
 
           <div class="about container-fluid">
             <h2 class="heading">About Uttrakhand</h2>
