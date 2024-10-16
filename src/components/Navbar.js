@@ -91,6 +91,8 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/pages/Destination", label: "Destinations" },
+    { href: "/pages/Hospital", label: "Hospitals" },
+    { href: "/pages/Resturants", label: "Resturants" },
     { href: "/pages/Hotel", label: "Hotels" },
     { href: "/pages/Maps", label: "Maps" },
     { href: "/pages/AiBot", label: "Ai-Bot" },
@@ -131,9 +133,9 @@ export default function Navbar() {
               ))}
             </nav>
           </SheetContent>
-
         </Sheet>
       </header>
     </>
   )
 }
+
