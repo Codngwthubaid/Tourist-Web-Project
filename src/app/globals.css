@@ -8,6 +8,11 @@
   color: black;
   background-color: white;
 }
+
+.backgroundImg{
+  background-image: url("../public/Img/m3.jpg");
+}
+
 .mainImg {
   background-image: url("../public/Img/main.jpg");
   height: 100vh;

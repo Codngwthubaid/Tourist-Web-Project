@@ -1,6 +1,6 @@
 "use client"
 import "./globals.css"
-import {Calendar, DollarSign } from "lucide-react"
+import { Calendar, DollarSign } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from 'react'
@@ -13,6 +13,8 @@ import k2 from "@/public/Img/k2.jpg"
 import m2 from "@/public/Img/m2.jpg"
 import m3 from "@/public/Img/m3.jpg"
 import k4 from "@/public/Img/k4.jpg"
+import React from 'react'
+import { ArrowRight } from 'lucide-react'
 
 // Mock function to simulate API call
 const searchPlaces = async (query) => {
@@ -59,7 +61,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen ">
       {/* <CodedCarousel/> */}
       <main className="flex-1 ">
- 
+
 
         {/* Adding code */}
 
@@ -71,6 +73,8 @@ export default function HomePage() {
                 <a href="/pages/Destination">Destinations</a>
                 <a href="/pages/About">About</a>
                 <a href="/pages/Contact">Contact</a>
+                <a href="/pages/Hotel">Hotel</a>
+                <a href="/pages/AiBot">AiBot</a>
                 <a href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -81,14 +85,14 @@ export default function HomePage() {
                 </a>
               </div>
               <div class="right-section">
-                <a href="/pages/SignUp" class="btn btn-outline">Login</a>
-                <a href="/pages/Login" class="btn">Sign Up</a>
+                <a href="/pages/Login" class="btn btn-outline">Login</a>
+                <a href="/pages/SignUp" class="btn">Sign Up</a>
               </div>
             </nav>
           </div>
         </header>
         <main>
-          <section id="home">
+          {/* <section id="home">
             <div class="container">
               <div class="carousel-container">
                 <div class="carousel-slide fade">
@@ -104,7 +108,6 @@ export default function HomePage() {
                     <div class="carousel-text">Vasuki Tal</div>
                 </div>
 
-                {/* <!-- Navigation Arrows --> */}
                 <div class="nav-arrows">
                   <button class="arrow left" onclick="changeSlide(-1)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -129,14 +132,46 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
+          <section>
+            <div className="relative h-screen backgroundImg w-full overflow-hidden">
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat ">
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              </div>
 
+              {/* Content */}
+              <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
+                <h1 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+                  Discover the Uttarakhand Beauty
+                </h1>
+                <p className="mb-8 max-w-md text-lg sm:text-xl md:max-w-lg">
+                "Devbhoomi Yatra: Your Journey to the Heart of Uttarakhand's Spiritual and Natural Wonders!"
+                </p>
+                <Link
+                  href="/pages/Destination"
+                  className="group inline-flex items-center rounded-full bg-white px-6 py-3 text-lg font-semibold text-blue-600 transition-colors hover:bg-blue-100"
+                >
+                  Explore Destinations
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+
+              {/* Scroll Indicator */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                <svg className="h-6 w-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
+            </div>
+          </section>
 
           <div class="about container-fluid">
             <h2 class="heading">About Uttrakhand</h2>
             <div class="row">
               <div class="col-5">
-                <Image src={m2} class="hero-Image" srcset="" width={200} height={200}/>
+                <Image src={m2} class="hero-Image" srcset="" width={1000} height={500} />
               </div>
 
               <div class="col-7">
@@ -170,7 +205,7 @@ export default function HomePage() {
                   <h3>Heart Warming Scenarios you have ever seen.</h3>
                   <p>Experience the elegance of our Light Mode, designed to offer a clean and bright interface.
                     Enjoy a visually pleasing and distraction-free environment.</p>
-                  <Image src={m2} width={200} height={200} alt="" class="responsiv-Image" />
+                  <Image src={m2} width={100} height={100} alt="" class="responsiv-Image" />
                 </div>
               </div>
               <div class="col-6 col-md-12">
@@ -189,7 +224,7 @@ export default function HomePage() {
                   <h3>A Sleek and Modern Look for Comfortable Viewing</h3>
                   <p>Discover the sophistication of our Dark Mode, crafted to provide a sleek and modern look.
                     Perfect for low-light settings, and engaging appearance.</p>
-                  <Image src={m2} width={200} height={200} alt="" class="responsiv-Image" />
+                  <Image src={m2} width={100} height={50} alt="" class="responsiv-Image" />
                 </div>
               </div>
             </div>
@@ -199,23 +234,23 @@ export default function HomePage() {
           <div class="scrolling-wrapper">
             <div class="card">
               <Image src={m2} width={200} height={200} alt="Image 1" />
-                <h2 class="card-title">Auli</h2>
+              <h2 class="card-title">Auli</h2>
             </div>
             <div class="card">
               <Image src={m2} width={200} height={200} alt="Image 2" />
-                <h2 class="card-title">Chamba</h2>
+              <h2 class="card-title">Chamba</h2>
             </div>
             <div class="card">
               <Image src={m2} width={200} height={200} alt="Image 3" />
-                <h2 class="card-title">Almora</h2>
+              <h2 class="card-title">Almora</h2>
             </div>
             <div class="card">
               <Image src={m2} width={200} height={200} alt="Image 4" />
-                <h2 class="card-title">Vasuki Tal</h2>
+              <h2 class="card-title">Vasuki Tal</h2>
             </div>
             <div class="card">
               <Image src={m2} width={200} height={200} alt="Image 4" />
-                <h2 class="card-title">Pauri Garhwal</h2>
+              <h2 class="card-title">Pauri Garhwal</h2>
             </div>
           </div>
         </main>
